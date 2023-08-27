@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://127.0.0.1/habit_tracker');
 
-mongoose.connect(process.env.MONGODB_URL).then(()=>{
+mongoose.connect('mongodb://127.0.0.1:27017/habit_tracker').then(()=>{
     console.log('Connection successful!');
 }).catch((err) => console.log("no connection " + err));
 
