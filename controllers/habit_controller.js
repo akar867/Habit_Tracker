@@ -121,13 +121,11 @@ module.exports.editHabit = async function(req, res) {
     }
 }
 
-
 // this fucntion will return the current data, which will helpful for getting the range of dates
 function getTodayDate(){
     var today = new Date();
     let date = today.getDate();
     let month = today.getMonth()+1;
-
     let fullDate = month + " " + date;
     return fullDate;
 }
