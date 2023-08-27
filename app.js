@@ -1,6 +1,6 @@
-// require express
+// require exprStoreess
 const dotEnv = require('dotenv');
-dotEnv.config()
+dotEnv.config();
 const express = require('express');
 const port = 8000;
 const app = express();
@@ -18,9 +18,7 @@ const session = require("express-session");
 const passport = require('passport');
 const passportLocal = require('./config/passport_local');
 
-const MongoStore = require('connect-mongo');
-
-
+const Mongo = require('connect-mongo');
 
 // layouts for ejs
 app.use(expressLayouts);
@@ -42,7 +40,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl:'mongodb+srv://himadrinayak:12345@cluster0.h7n86ah.mongodb.net/habit-tracker?retryWrites=true&w=majority',
+            mongoUrl:'mongodb://127.0.0.1:27017/habit_tracker',
             autoRemover : 'disabled'
         },
         function(err){
@@ -50,6 +48,8 @@ app.use(session({
         }
     ),
 }));
+
+
 
 // Using passport
 app.use(passport.initialize());
